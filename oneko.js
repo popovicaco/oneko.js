@@ -125,7 +125,7 @@
          mousePosX = mx;
          mousePosY = my;
       }
-    });
+    }, 200);
 
     document.addEventListener("mousemove", function (event) {
       if (mx === event.clientX && my === event.clientY){
