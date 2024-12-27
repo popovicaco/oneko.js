@@ -105,10 +105,38 @@
 
     document.body.appendChild(nekoEl);
 
-    document.addEventListener("mousemove", function (event) {
-      mousePosX = event.clientX;
-      mousePosY = event.clientY;
+    let mx = 0;
+    let my = 0;
+    let circling = false;
+
+    const getPoint = (pointx, pointy, radius, t) => {
+      const angle = (t * 2 * Math.PI) % (2 * Math.PI);
+      const x = pointx + radius * Math.cos(angle);
+      const y = pointy + radius * Math.sin(angle);
+      return [x,y]
+    }
+
+    setInterval(() => {
+      if (circling){
+        const [x,y] = getPoint(mx, my, 25, performance.now()/1000);
+        mousePosX = x;
+        mousePosY = y;
+      } else {
+         mousePosX = mx;
+         mousePosY = my;
+      }
     });
+
+    document.addEventListener("mousemove", function (event) {
+      if (mx === event.clientX && my === event.clientY){
+        circling = true;
+      } else {circling = false;}
+
+      mx = event.clientX;
+      my = event.clientY;
+      
+    });
+
 
     window.requestAnimationFrame(onAnimationFrame);
   }
