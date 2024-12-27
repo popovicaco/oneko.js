@@ -136,6 +136,7 @@
 
       mx = event.clientX;
       my = event.clientY;
+      console.log(circling);
       
     });
 
