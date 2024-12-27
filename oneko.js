@@ -125,6 +125,8 @@
          mousePosX = mx;
          mousePosY = my;
       }
+      console.log(x);
+      console.log(y);
     }, 200);
 
     document.addEventListener("mousemove", function (event) {
