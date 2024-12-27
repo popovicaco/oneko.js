@@ -1,6 +1,7 @@
 // oneko.js: https://github.com/adryd325/oneko.js
 
 (function oneko() {
+  console.log("oneko loaded");
   const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
